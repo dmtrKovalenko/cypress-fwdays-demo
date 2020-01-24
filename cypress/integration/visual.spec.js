@@ -10,7 +10,8 @@ describe("Visual regression", () => {
 
   it("Shows registration modal", () => {
     cy.get("#event_action_mob-QA-fwdays20-online-conference").click();
-    cy.contains(".h2", "Увійти");
+    
+    cy.get('.remodal').should('be.visible')
     cy.percySnapshot("Register");
   });
 });
