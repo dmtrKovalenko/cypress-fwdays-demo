@@ -1,11 +1,16 @@
 describe("Visual regression", () => {
-  it("Shows speakers page", () => {
-    cy.visit("https://www.testcon.lt/speakers/")
-    cy.percySnapshot('Speakers')
+  beforeEach(() => {
+    cy.visit("https://fwdays.com/en/event/QA-fwdays20-online-conference");
+    cy.contains("QA fwdays'20 онлайн-конференція")
   })
-
+  
   it("Shows main page", () => {
-    cy.visit("https://www.testcon.lt/")
-    cy.percySnapshot('Main')
-  })
-})
+    cy.percySnapshot("Main");
+  });
+
+  it("Shows registration modal", () => {
+    cy.get("#event_action_mob-QA-fwdays20-online-conference").click();
+    cy.contains(".h2", "Увійти");
+    cy.percySnapshot("Register");
+  });
+});
