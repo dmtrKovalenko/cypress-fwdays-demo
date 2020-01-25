@@ -14,11 +14,11 @@ describe("Advanced", () => {
       cy.get("#event-menu-trigger").click();
       cy.contains(".event-menu a.go-to-block", navigationItem).click();
 
-      cy.contains("h2", navigationItem);
+      cy.contains("h2", navigationItem).should('be.visible');
     });
   });
 
-  context("Registration", () => {
+  context.skip("Registration", () => {
     beforeEach(() => {
       cy.get("#event_action_mob-QA-fwdays20-online-conference").click();
     });
